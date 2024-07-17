@@ -1,0 +1,1 @@
+Website ini merupakan tempat untuk unggah posting teks sederhana seperti Twitter atau Threads. Website ini dibangun dengan Tech Stack PERN (PostgreSQL, ExpressJS, ReactJS, NodeJS). Website ini merupakan project untuk menyelesaikan tugas Penulisan Ilmiah/Scientific Writing
