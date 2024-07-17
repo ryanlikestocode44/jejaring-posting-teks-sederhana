@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .bg-reply {
+        background:url("./assets/chat-bubble.png");
+    }
+    
+    .hover\:bg-replied:hover {
+    background:url("./assets/chat-dark.png");
+    }
+}
