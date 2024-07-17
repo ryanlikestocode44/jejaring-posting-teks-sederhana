@@ -16,6 +16,7 @@ const database = "forum_pern";
 
 // Middleware
 app.use(cors());
+
 app.use(express.json());
 
 // Import Routes
