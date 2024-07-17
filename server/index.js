@@ -1,5 +1,5 @@
 import express from 'express';
-import cors from'cors';
+import cors from 'cors';
 import db from './database/db.js';
 
 const app = express()
@@ -14,7 +14,7 @@ db.connect()
 const port = 4000;
 const database = "forum_pern";
 
-//middleware
+// Middleware
 app.use(cors());
 app.use(express.json());
 

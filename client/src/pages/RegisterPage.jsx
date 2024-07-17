@@ -14,7 +14,7 @@ const RegisterPage = () => {
     const [usernameError, setUsernameError] = useState(null);
     const [passwordError, setPasswordError] = useState(null);
     
-    const usernameRegex = /^[a-zA-Z0-30]+$/; // To check if username starts from a letter and max length is 30
+    const usernameRegex = /^[a-zA-Z]+(?:[_-]?[a-zA-Z])/; // To check if username starts from a letter and max length is 30
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // To check email input format
 
     const onSubmitForm = async (e) => {

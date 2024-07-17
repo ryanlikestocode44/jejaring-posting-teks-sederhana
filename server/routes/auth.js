@@ -2,15 +2,15 @@ import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import db from '../database/db.js';
-import { registerUserValidation, loginUserValidation } from '../util/validation.js';
+import { registerUserValidation, loginUserValidation } from '../validators/validation.js';
 
 const app = express();
 const { JWT_SECRET, SESSION_EXPIRES = '7d' } = process.env;
 
 app.post('/register', async (req, res) => {
     try {
-        await registerUserValidation.validateAsync(req.body, { abortEarly: false });
-        const { username, email, first_name, last_name, password } = req.body;
+        const validation = await registerUserValidation.validateAsync(req.body, { abortEarly: false });
+        const { username, email, first_name, last_name, password } = validation;
 
         let user = await db.query(
             'SELECT user_id FROM pengguna u WHERE u.username = $1 or u.email = $2', 
@@ -36,6 +36,7 @@ app.post('/register', async (req, res) => {
         user = { userID: dbUser.rows[0].user_id }
         const token = jwt.sign(user, JWT_SECRET, { expiresIn: SESSION_EXPIRES });
         return res.status(200).json({message: 'Ok', token});
+        
     } catch (err) {
         res.status(500).json({ message: 'Please insert valid information.', err });
     }
@@ -43,8 +44,8 @@ app.post('/register', async (req, res) => {
 
 app.post('/login', async (req, res) => {
     try {
-        await loginUserValidation.validateAsync(req.body, {abortEarly: false});
-        const { username, password } = req.body;
+        const validation = await loginUserValidation.validateAsync(req.body, {abortEarly: false});
+        const { username, password } = validation;
         
         const user = await db.query( 'SELECT * FROM pengguna WHERE username = $1', 
             [username]
