@@ -70,7 +70,7 @@ const RegisterPage = () => {
 
     const register = async (registerUser) => {
         try {
-          const data = await fetch("http://localhost:4000/register", {
+          const data = await fetch("https://statusku-api.vercel.app/register", {
             method: "POST",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify(registerUser)

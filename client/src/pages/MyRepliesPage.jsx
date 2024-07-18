@@ -9,7 +9,7 @@ const MyRepliesPage = () => {
     const getReplies = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:4000/myReplies', {
+            const response = await fetch('https://statusku-api.vercel.app/myReplies', {
                 method: "GET",
                 headers:{"Auth-token": token},
             });

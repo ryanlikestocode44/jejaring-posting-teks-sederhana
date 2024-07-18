@@ -4,7 +4,7 @@ import { Meteor, User, Previous } from '../assets';
 const UserPage = () => {
     const [userData, setUserData] = useState([]);
     
-    const url = 'http://localhost:4000/profilePage';
+    const url = 'https://statusku-api.vercel.app/profilePage';
 
     const getUserData = async () => {
         try {

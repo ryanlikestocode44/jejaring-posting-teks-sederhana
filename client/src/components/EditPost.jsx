@@ -11,7 +11,7 @@ const EditPost = ({ post }) => {
         try {
             const body = {description};
             const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:4000/posts/${post.post_id}`, {
+            const response = await fetch(`https://statusku-api.vercel.app/posts/${post.post_id}`, {
                 method: "PUT",
                 headers: {"Content-type": "application/json", "Auth-token": token},
                 body: JSON.stringify(body),

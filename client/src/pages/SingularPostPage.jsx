@@ -18,7 +18,7 @@ const SingularPostPage = () => {
 
     const getAllReplies = async () => {
         try {
-            const response = await fetch(`http://localhost:4000/posts/${postID}`, {
+            const response = await fetch(`https://statusku-api.vercel.app/${postID}`, {
                 method: "GET",
             });
             
