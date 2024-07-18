@@ -31,6 +31,6 @@ app.use('/', postRoute);
 app.use('/', replyRoute);
 app.use('/', profilePageRoute);
 
-app.listen(port, () => {
+app.listen(port, (req, res) => {
     console.log(`Server started on port ${port}.`);
 });
