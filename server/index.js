@@ -7,7 +7,7 @@ const app = express()
 db.connect()
 .then(() => {console.log('Connected to PostgreSQL Database.'); })
 .catch(async (err) => {
-    console.err(err);
+    console.error(err);
     await db.end();
 });
 
