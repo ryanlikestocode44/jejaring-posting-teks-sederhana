@@ -3,7 +3,6 @@ import Joi from 'joi'
 
 // Validasi Register
 const username = Joi.string()
-    .alphanum()
     .min(3)
     .max(30)
     .regex(/^[a-zA-Z]+(?:[_-]?[a-zA-Z])/)
@@ -24,7 +23,7 @@ const first_name = Joi.string()
     .max(100)
     .regex(/^[a-zA-Z ]+$/)
     .required()
-    .label('First Name must not contain numbers');;
+    .label('First Name must not contain numbers');
 
 const last_name = Joi.string()
     .alphanum()
@@ -32,7 +31,7 @@ const last_name = Joi.string()
     .max(100)
     .regex(/^[a-zA-Z ]+$/)
     .required()
-    .label('Last Name must not contain numbers');;
+    .label('Last Name must not contain numbers');
 
 const password = Joi.string()
     .min(8)

@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Sprinkle, Previous, Add, AddDark } from '../assets';
+import { Sprinkle, Previous, Add, AddDark, User } from '../assets';
 import ReplyTo from '../components/ReplyTo';
 import ReactTimeAgo from 'react-timeago';
 
@@ -18,7 +18,7 @@ const SingularPostPage = () => {
 
     const getAllReplies = async () => {
         try {
-            const response = await fetch(`https://statusku-api.vercel.app/${postID}`, {
+            const response = await fetch(`http://localhost:4000/posts/${postID}`, {
                 method: "GET",
             });
             
@@ -76,6 +76,16 @@ const SingularPostPage = () => {
                                 key={reply.reply_id}
                                 className="flex flex-col gap-2 mb-4 px-5 py-3 border-b-2 border-b-third"
                             >
+                                <a 
+                                    className='flex items-center gap-3
+                                    phone:text-sm
+                                    laptop:text-lg'
+                                    href={`/profilePage/${reply.username}`}
+                                >
+                                    <img src={User} alt='User Logo'className='phone:w-6 tablet:w-10 laptop:w-12'/>
+                                    <h3>{reply.username}</h3>
+                                </a>
+
                                 <div 
                                     className="text-xl whitespace-pre-wrap 
                                     phone:w-[90vw]

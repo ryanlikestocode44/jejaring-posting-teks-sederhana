@@ -9,7 +9,7 @@ const dbConfig = {
     password: 'ryan123',
     host: 'localhost',
     port: 5432,
-    database: 'forum_pern'
+    database: 'statuskudb'
 };
   
 const connectionString = `postgres://${dbConfig.user}:${dbConfig.password}@${dbConfig.host}:${dbConfig.port}/${dbConfig.database}`;

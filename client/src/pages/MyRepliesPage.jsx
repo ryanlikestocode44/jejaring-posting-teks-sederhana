@@ -1,6 +1,6 @@
 import {Fragment, useState, useEffect} from 'react';
 import EditReply from '../components/EditReply';
-import { Shiny } from '../assets';
+import { Shiny, User } from '../assets';
 import ReactTimeAgo from 'react-timeago';
 
 const MyRepliesPage = () => {
@@ -9,7 +9,7 @@ const MyRepliesPage = () => {
     const getReplies = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('https://statusku-api.vercel.app/myReplies', {
+            const response = await fetch('http://localhost:4000/myReplies', {
                 method: "GET",
                 headers:{"Auth-token": token},
             });
@@ -69,7 +69,18 @@ const MyRepliesPage = () => {
                         <main className='flex flex-col gap-12'>
                             {replies.map(reply => (
                                 <div key={reply.reply_id}>
-                                    <ReactTimeAgo date={reply.datetime} className="text-gray-800 phone:text-sm desktop:text-lg" />
+                                    <header className='flex items-center justify-between mb-3'>
+                                        <a 
+                                            className='flex items-center gap-3
+                                            phone:text-sm
+                                            laptop:text-lg'
+                                            href={`/profilePage/${reply.username}`}
+                                        >
+                                            <img src={User} alt='User Logo'className='phone:w-6 tablet:w-10 laptop:w-12'/>
+                                            <h3>{reply.username}</h3>
+                                        </a>
+                                        <ReactTimeAgo date={reply.datetime} className="text-gray-800 phone:text-sm desktop:text-lg" />
+                                    </header>
                                     <div 
                                         className='whitespace-pre-wrap text-xl pb-1 p-2 border-2 rounded-md text-ellipsis w-[50vw] min-h-5
                                         phone:text-sm phone:w-[82vw]

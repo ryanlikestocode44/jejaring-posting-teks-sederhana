@@ -10,6 +10,8 @@ import Previous from './previous.png'
 import ReplyDark from './chat-dark.png'
 import Add from './add.png'
 import AddDark from './add-dark.png'
+import Settings from './settings.png'
+import SettingsDark from './settings-dark.png'
 
 export {
     Sprinkle,
@@ -24,4 +26,6 @@ export {
     Previous,
     Add,
     AddDark,
+    Settings,
+    SettingsDark
 }

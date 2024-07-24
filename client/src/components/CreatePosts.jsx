@@ -21,7 +21,7 @@ const CreatePosts = () => {
         try {
             const token = localStorage.getItem('token');
             const body = {description};
-            const response = await fetch("https://statusku-api.vercel.app/posts", {
+            const response = await fetch("http://localhost:4000/posts", {
                 method: "POST",
                 headers: { 
                     "Content-type": "application/json", 

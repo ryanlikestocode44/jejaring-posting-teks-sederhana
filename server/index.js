@@ -12,7 +12,6 @@ db.connect()
 });
 
 const port = 4000;
-const database = "forum_pern";
 
 // Middleware
 app.use(cors());

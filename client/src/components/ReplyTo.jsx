@@ -26,7 +26,7 @@ const ReplyTo = ({ id }) =>{
         try {
             const token = localStorage.getItem("token");
             const body = {description};
-            const response = await fetch(`https://statusku-api.vercel.app/posts/reply/${id}`, {
+            const response = await fetch(`http://localhost:4000/posts/reply/${id}`, {
                 method: "POST",
                 headers: {"Content-type": "application/json", "Auth-token": token},
                 body: JSON.stringify(body),

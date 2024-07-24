@@ -8,7 +8,7 @@ const LoginPage = () => {
 
     const login = async (userLogin) => {
       try {
-        const data = await fetch("https://statusku-api.vercel.app/login", {
+        const data = await fetch("http://localhost:4000/login", {
           method: "POST",
           headers:{"Content-type": "application/json"},
           body: JSON.stringify(userLogin)

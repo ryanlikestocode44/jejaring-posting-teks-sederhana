@@ -11,7 +11,7 @@ const MyPostsPage = () => {
     const getPosts = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('https://statusku-api.vercel.app/myPosts', {
+            const response = await fetch('http://localhost:4000/myPosts', {
                 method: "GET",
                 headers:{"Auth-token": token},
             });
