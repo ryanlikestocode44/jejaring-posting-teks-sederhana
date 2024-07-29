@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect } from 'react';
 import { Shapes, Notes, User, Reply, ReplyDark } from '../assets';
 import ReactTimeAgo from 'react-timeago';
+
 const PostsPage = () => {
     const [posts, setAllPosts] = useState([]);
     
@@ -20,7 +21,6 @@ const PostsPage = () => {
 
             const jsonData = await response.json();
             setAllPosts(jsonData);
-            console.log(jsonData)
         } catch (err) {
             console.log(err.message);
         }
@@ -58,7 +58,7 @@ const PostsPage = () => {
                             className="text-first bg-third hover:bg-fourth text-xl font-bold py-2 px-4 rounded ml-2 phone:text-sm desktop:text-lg" onClick={sortDescDate}
                         >Sort posts by new</button>
                     </section>
-
+                    
                     {posts.map(post => (
                         <div key={post.post_id} className="flex flex-col justify-between mb-8 gap-3 border-b border-gray-200 py-4">
                             <div className="flex flex-col gap-5 text-xl mr-10 phone:mr-0 border-2 rounded-xl p-5">
@@ -79,18 +79,18 @@ const PostsPage = () => {
                                         className='bg-fourth w-[65vw] rounded-lg p-5
                                         phone:p-2 phone:w-[80vw]
                                         tablet:w-[75vw]
-                                        laptop:p-4 laptop:w-[65vw]
+                                        laptop:p-4 laptop:w-[60vw]
                                         desktop:w-[60vw]'
                                     >
                                         <p 
-                                            className="text-2xl whitespace-pre-wrap text-first font-semibold phone:text-sm laptop:text-lg"
+                                            className="whitespace-pre-wrap text-first font-semibold phone:text-sm laptop:text-lg"
                                         >{post.description}</p>
                                     </div>
                                 </main>
                                 <footer>
                                     <div className='flex gap-5 ml-3'>
                                         <a href={`/posts/${post.post_id}`}>
-                                            <div className="relative w-10">
+                                            <div className="relative w-8">
                                                 <img src={Reply} className="hover:scale-110" alt="Reply Logo" />
                                                 <img 
                                                     src={ReplyDark}
